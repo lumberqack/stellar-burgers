@@ -1,7 +1,6 @@
 {
   "parser": "@typescript-eslint/parser",
-  "plugins": ["react", "@typescript-eslint", "prettier"],
-  "extends": ["prettier"],
+  "plugins": ["react", "@typescript-eslint", "eslint-plugin-unused-imports"],
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",
@@ -10,12 +9,17 @@
     }
   },
   "rules": {
-    "prettier/prettier": [
-      "warn",
-      {
-        "usePrettierrc": true
-      }
-    ],
+    "sort-imports": "error",
+    "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": [
+            "warn",
+            {
+                "vars": "all",
+                "varsIgnorePattern": "^_",
+                "args": "after-used",
+                "argsIgnorePattern": "^_",
+            },
+        ],
     "react/react-in-jsx-scope": "off",
     "comma-dangle": "off",
     "use-isnan": ["error", { "enforceForSwitchCase": true }],
